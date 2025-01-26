@@ -26,7 +26,7 @@ public class JwtService implements CommandLineRunner {
     private String SECRET;
 
     //this method create brand-new Jwt token for us based on payload
-    private String createToken(Map<String, Object> payload, String email) {
+    public String createToken(Map<String, Object> payload, String email) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + expiry*1000L);
 
@@ -41,8 +41,12 @@ public class JwtService implements CommandLineRunner {
                 .compact();
     }
 
+    public String createToken(String email) {
+        return createToken(new HashMap<>(), email);
+    }
+
     //Generates a signing key from the SECRET using HMAC SHA.
-    private Key getSignKey()
+    public Key getSignKey()
     {
         return Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
     }
