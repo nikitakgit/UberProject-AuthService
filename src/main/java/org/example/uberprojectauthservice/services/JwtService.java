@@ -85,12 +85,12 @@ public class JwtService implements CommandLineRunner {
     }
 
     //Extracts the subject (typically the email) from the token.
-    private String extractEmail(String token) {
+    public String extractEmail(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
     //Validates the JWT by checking if the email matches and the token has not expired.
-    private Boolean validateToken(String token, String email) {
+    public Boolean validateToken(String token, String email) {
         final String userEmailFetchedFromToken = extractEmail(token);
         return (userEmailFetchedFromToken.equals(email) && !isTokenExpired(token));
     }
