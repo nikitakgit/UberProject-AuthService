@@ -1,11 +1,10 @@
 package org.example.uberprojectauthservice.helpers;
 
-import org.example.uberprojectauthservice.models.Passenger;
+import org.example.uberprojectentityservice.models.Passenger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 
 //Why we need this class??
 //Because spring security works on Userdetails polymorphic type for auth
